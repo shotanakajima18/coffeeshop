@@ -1,0 +1,35 @@
+
+<!doctype html>
+{% extends 'layout.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+Edit Food
+{% endblock %}
+
+
+
+{% block content %}
+    <form class="form-auth w-50 mx-auto mt-5" method="POST" action="/admin/edit_food/{{food.id}}">
+        <h2 class="form-auth-heading">Food</h2>
+        <dl>
+            <dt>Name:</dt>
+            <dd>
+                <input class = "form-control" type="text" name="name" value="{{ food.name if food }}">
+            </dd>
+            <dt>Price:</dt>
+            <dd>
+                <input class = "form-control" type="number" name="price" value="{{ food.price if food }}">
+            </dd>
+            <dt>Quantity</dt>
+            <dd>
+                <input type="number" name="quantity" value="{{ food.quantity if food }}">
+            </dd>
+
+            <dd><input class = "btn btn-primary" type="submit" value="Update"></dd>
+        </dl> 
+    </form>
+
+    
+
+{% endblock %}

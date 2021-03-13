@@ -1,0 +1,28 @@
+<!doctype html>
+{% extends 'layout.html' %}
+{% block title %}
+User prpfile
+{% endblock %}
+
+
+
+{% block content %}
+<div class="card w-50 mx-auto mt-5">
+    <div class="card-body">
+        <h2>Your Profile</h2>
+        <dl>
+            <dt>Username:</dt>
+            <dd>{{ user.screen_name if user }}</dd>
+            <dt>Status:</dt>
+            <dd>{{ 'Admin' if user.admin else 'Customer' }}</dd>
+            <dt>Email:</dt>
+            <dd>{{ user.email if user }}</dd>
+            <dt>Tel :</dt>
+            <dd>{{user.tel if user}}</dd>
+        </dl>
+        <a href="/user/me/edit">
+            <button class="btn btn-lg btn-primary btn-block w-25">Edit</button>
+        </a>
+    </div>
+</div>
+{% endblock %}

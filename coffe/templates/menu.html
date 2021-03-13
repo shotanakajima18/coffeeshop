@@ -1,0 +1,78 @@
+
+<!doctype html>
+{% extends 'layout.html' %}
+{% block title %}
+HOME
+{% endblock %}
+
+
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row justify-content-around">
+            
+            {%if drinks%}
+            {%for drink in drinks%}
+            <div class="card col-4 mr-1 mt-3">
+                <div class="card-header">
+                    <a href="/buy_drink/{{drink.id}}"><h3 class=" text-capitalize">{{drink.flavar}}</h3></a>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6 ">
+                            <img src="/static/images/{{drink.picture}}" class="w-100">
+                        </div>
+                        <div class="col-6">
+                            <dl>
+                                <dd><p>Price : ＄{{drink.price}}</p></dd>
+                                <dd><p>Size : Small, Midium, Lerge</p></dd>
+                                <dd><p>Hot/Cold</p></dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+            {%endif%}
+        </div>
+        <div class="row justify-content-around">
+            
+            {%if foods%}
+            {%for food in foods%}
+            <div class="card col-4 mr-1 mt-3">
+                <div class="card-header">
+                    <a href="/buy_food/{{food.id}}"><h3 class="text-capitalize">{{food.name}}</h3></a>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <img src="/static/images/{{food.picture}}" class="w-100" height="">
+                        </div>
+                        <div class="col-6">
+                            <dl>
+                                <dd><p>Price : ＄{{food.price}}</p></dd>
+                                <dd><p>Size : Small, Midium, Lerge</p></dd>
+                                <dd><p>Hot/Cold</p></dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+            {%endif%}
+
+            
+        
+        
+        
+            
+            
+        </div>
+
+
+
+
+
+     
+    </div> <!-- /container -->
+{% endblock %}

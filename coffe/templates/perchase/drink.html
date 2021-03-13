@@ -1,0 +1,50 @@
+
+
+{% extends 'layout.html' %}
+
+
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+HOME
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('static', filename='stylesheet/auth.css')}}">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<link rel="stylesheet"  href="{{ url_for('static', filename='new.css') }}">
+{% endblock %}
+
+{% block content %}
+
+    <div class="container-fluid center-block">
+    
+        <div class="card w-75 center-block mx-auto">
+            <div class="card-header">
+                <h4 class="text-capitalize">{{drink.flavar}}</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6 mt-5 text-center">
+                        <img src="/static/images/{{drink.picture}}" class="w-50">
+                    </div>
+                    <div class="col-6">
+                        <form action="/buy_drink/{{drink.id}}" method="POST" class="form-auth w-50 mx-auto">
+                            {{form.hidden_tag()}}
+                            <p>Price : ＄{{drink.price}}</p>
+                            {{wtf.form_field(form.quantity)}}
+                            {{wtf.form_field(form.size)}}
+                            {{wtf.form_field(form.tem)}}
+                            <button class="btn btn-lg w-10 btn-primary btn-block" type="submit">Buy</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div> <!-- /container -->
+{% endblock %}

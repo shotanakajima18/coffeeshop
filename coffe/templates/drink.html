@@ -1,0 +1,49 @@
+
+<!doctype html>
+{% extends 'layout.html' %}
+{% block title %}
+Drink Menu
+{% endblock %}
+
+
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row justify-content-around">
+            
+            {%if drinks%}
+            {%for drink in drinks%}
+            <div class="card col-4 mr-1 mt-3">
+                <div class="card-header">
+                    <a href="/buy_drink/{{drink.id}}"><h3 class=" text-capitalize">{{drink.flavar}}</h3></a>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6 ">
+                            <img src="/static/images/{{drink.picture}}" class="w-100">
+                        </div>
+                        <div class="col-6">
+                            <dl>
+                                <dd><p>Price : ＄{{drink.price}}</p></dd>
+                                <dd><p>Size : Small, Midium, Lerge</p></dd>
+                                <dd><p>Hot/Cold</p></dd>
+                            </dl>
+                            {% if current_user.admin == True %}
+                                <a href="/admin/edit_drink/{{drink.id}}">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a href="/admin/delete_drink/{{drink.id}}">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+            {%else%}
+                <h2 class="text-center mt-5">No items.</h2>
+            {%endif%}
+        </div>    
+    </div> <!-- /container -->
+{% endblock %}

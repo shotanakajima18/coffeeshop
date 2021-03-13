@@ -1,0 +1,40 @@
+
+<!doctype html>
+{% extends 'layout.html' %}
+
+
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+HOME
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('static', filename='stylesheet/auth.css')}}">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<link rel="stylesheet"  href="{{ url_for('static', filename='new.css') }}">
+{% endblock %}
+
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="row justify-content-around">
+            <form action="/admin_drink" class="form-auth" method="POST" enctype="multipart/form-data">
+                <h2 class="form-auth-hedding">New Drink Menu</h2>
+                {{form.hidden_tag()}}
+                {{wtf.form_field(form.flavar)}}
+                {{wtf.form_field(form.price)}}
+                {{wtf.form_field(form.picture)}}
+                <button class=" btn btn-lg btn-primary btn-block" type="submit" >Create</button>
+            
+            </form>
+
+
+
+
+
+
+        </div>
+    </div> <!-- /container -->
+{% endblock %}

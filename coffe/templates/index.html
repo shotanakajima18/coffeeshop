@@ -1,0 +1,50 @@
+
+<!doctype html>
+{% extends 'layout.html' %}
+
+
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+HOME
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('static', filename='stylesheet/auth.css')}}">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<link rel="stylesheet"  href="{{ url_for('static', filename='new.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid w-75 mx-auto">
+
+    
+        <div class="jumbotron jumbotoron-fuluid display-1 mt-5  mx-auto">
+            <div class="containe">
+                <h2 class="text-center">Welcome Online Cafe</h2>
+                <!-- <img src="/static/images/image.jpg" alt="" class="w-75"> -->
+            </div>
+            
+        </div>
+        <div class="containe-fluid w-75 mx-auto">
+            <div class="row">
+                <div class="col-6">
+                    <h4 class="">Drink</h4>
+                    <a href="/drink_menu"><img src="/static/images/slider_05.png" alt="" class="w-100"></a>
+                </div>
+                <div class="col-6">
+                    <h4>Food</h4>
+
+                    <a href="/food_menu"><img src="/static/images/bred.png" alt="" class="w-100"  ></a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+
+
+     
+    
+{% endblock %}

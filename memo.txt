@@ -1,0 +1,45 @@
+<!-- <div class="row">
+            <h1>Drink</h1>
+            {% for key,value in drink_items.items%}
+            <div class="col-3">
+                
+                <div class="card">
+                    <div class="card-heder">
+                        <p><strong>{{key}}</strong></p>
+
+                    </div>
+                    <div class="card-body">
+                        <div class="col-6"></div>
+                        <div class="col-6">
+                            {{value}}
+                        </div>
+
+                    </div>
+                    <div class="card-footer">
+
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+        <div class="row">
+            <h1>Foods</h1>
+            {%for key,value in food_items.items%}
+            <div class="col-3">
+                <div class="card">
+                    <div class="card-heder">
+                        <p><strong>{{key}}</strong></p>
+                    </div>
+                    <div class="card-body">
+                        <div class="col-6"></div>
+                        <div class="col-6">
+                            {{value}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+
+            {%endfor%}
+        </div> -->
